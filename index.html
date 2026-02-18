@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stimulant Wiki — The Complete Encyclopedia of Stimulants, Nootropics & Cognitive Enhancement</title>
+  <meta name="description" content="The internet's most comprehensive wiki on stimulants, nootropics, and cognitive enhancers. 100+ entries covering mechanisms, dosing, stacking, safety, and science.">
+  <meta name="keywords" content="stimulant wiki, nootropics guide, caffeine, modafinil, Adderall, cognitive enhancement, nootropic stacks, brain supplements, focus drugs, ADHD medication guide">
+  <meta property="og:title" content="Stimulant Wiki — The Complete Stimulant Encyclopedia">
+  <meta property="og:description" content="100+ entries on stimulants, nootropics, and cognitive enhancers. Mechanisms, dosing, stacking, safety, and science — all in one place.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://stimulant.wiki">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <link rel="canonical" href="https://stimulant.wiki">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#050508;--surface:#0a0a12;--card:#0e0e18;--card-hover:#121220;
+      --border:#1a1a2e;--text:#e8e8f0;--dim:#8888a0;--muted:#555568;
+      --accent:#8b5cf6;--accent-glow:rgba(139,92,246,0.12);
+      --green:#10b981;--orange:#f59e0b;--red:#ef4444;--cyan:#06b6d4;--blue:#6366f1;--pink:#ec4899;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;}
+    a{color:var(--accent);text-decoration:none;transition:opacity 0.2s;}
+    a:hover{opacity:0.85;}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+    .nav-logo{font-size:1.1rem;font-weight:900;letter-spacing:-0.5px;cursor:pointer;white-space:nowrap;}
+    .nav-logo .book{margin-right:0.3rem;}
+    .nav-logo .wiki{color:var(--accent);}
+    .nav-search{flex:1;max-width:450px;position:relative;}
+    .nav-search input{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.5rem 1rem 0.5rem 2.2rem;border-radius:8px;font-size:0.85rem;font-family:inherit;}
+    .nav-search input:focus{outline:none;border-color:var(--accent);}
+    .nav-search::before{content:'🔍';position:absolute;left:0.7rem;top:50%;transform:translateY(-50%);font-size:0.8rem;}
+    .search-results{position:absolute;top:100%;left:0;right:0;background:var(--card);border:1px solid var(--border);border-radius:8px;margin-top:4px;max-height:300px;overflow-y:auto;display:none;z-index:200;}
+    .search-results.active{display:block;}
+    .search-result{padding:0.6rem 1rem;cursor:pointer;border-bottom:1px solid var(--border);transition:background 0.15s;}
+    .search-result:hover{background:var(--surface);}
+    .search-result .sr-name{font-weight:700;font-size:0.85rem;}
+    .search-result .sr-cat{font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:1px;}
+    .nav-links{display:flex;gap:1rem;align-items:center;}
+    .nav-links a{color:var(--dim);font-size:0.8rem;font-weight:600;transition:color 0.2s;white-space:nowrap;}
+    .nav-links a:hover{color:var(--text);}
+    .nav-cta{background:var(--accent);color:#fff !important;padding:0.4rem 0.9rem;border-radius:8px;font-size:0.75rem;}
+    @media(max-width:768px){.nav-search{max-width:200px;}.nav-links a:not(.nav-cta){display:none;}}
+    @media(max-width:500px){.nav-search{display:none;}}
+
+    /* HERO */
+    .hero{text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);pointer-events:none;}
+    .hero-badge{display:inline-block;background:var(--accent-glow);border:1px solid rgba(139,92,246,0.3);color:var(--accent);font-size:0.7rem;font-weight:700;padding:0.25rem 0.8rem;border-radius:50px;margin-bottom:1rem;text-transform:uppercase;letter-spacing:1.5px;}
+    .hero h1{font-size:3.2rem;font-weight:900;letter-spacing:-2px;line-height:1.1;max-width:750px;margin:0 auto 0.75rem;}
+    .hero h1 .gr{background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero p{color:var(--dim);font-size:1.05rem;max-width:580px;margin:0 auto 2rem;}
+    .hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+    .hero-stat .num{font-size:2rem;font-weight:900;color:var(--accent);display:block;}
+    .hero-stat .label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+    .hero-cats{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+    .cat-btn{background:var(--surface);border:1px solid var(--border);color:var(--dim);padding:0.4rem 0.9rem;border-radius:8px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+    .cat-btn:hover,.cat-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+    @media(max-width:600px){.hero h1{font-size:2.2rem;}.hero-stats{gap:1.5rem;}}
+
+    /* CROSS-SITE BAR */
+    .site-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0.8rem 1.5rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+    .site-link{display:flex;align-items:center;gap:0.35rem;font-size:0.75rem;font-weight:700;color:var(--dim);transition:color 0.2s;white-space:nowrap;}
+    .site-link:hover{color:var(--text);}
+    .site-link .dot{width:6px;height:6px;border-radius:50%;display:inline-block;}
+
+    /* SECTIONS */
+    .section{max-width:1200px;margin:0 auto;padding:3rem 1.5rem;}
+    .section-label{color:var(--accent);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:0.3rem;}
+    .section-title{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:0.3rem;}
+    .section-desc{color:var(--dim);max-width:600px;margin-bottom:1.5rem;font-size:0.9rem;}
+
+    /* WIKI ENTRIES GRID */
+    .wiki-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
+    .wiki-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all 0.3s;cursor:pointer;position:relative;}
+    .wiki-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+    .wiki-card .wc-cat{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:0.15rem 0.5rem;border-radius:4px;display:inline-block;margin-bottom:0.5rem;}
+    .wc-cat-rx{background:rgba(239,68,68,0.15);color:var(--red);}
+    .wc-cat-noot{background:rgba(16,185,129,0.15);color:var(--green);}
+    .wc-cat-stim{background:rgba(245,158,11,0.15);color:var(--orange);}
+    .wc-cat-herb{background:rgba(6,182,212,0.15);color:var(--cyan);}
+    .wc-cat-stack{background:rgba(139,92,246,0.15);color:var(--accent);}
+    .wc-cat-mech{background:rgba(236,72,153,0.15);color:var(--pink);}
+    .wiki-card h3{font-size:1.05rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.3px;}
+    .wiki-card .wc-aka{font-size:0.7rem;color:var(--muted);margin-bottom:0.5rem;font-style:italic;}
+    .wiki-card .wc-desc{font-size:0.8rem;color:var(--dim);line-height:1.5;margin-bottom:0.75rem;}
+    .wiki-card .wc-meta{display:flex;gap:0.75rem;flex-wrap:wrap;}
+    .wiki-card .wc-tag{font-size:0.65rem;color:var(--muted);font-weight:600;background:var(--surface);padding:0.15rem 0.5rem;border-radius:4px;}
+    .wiki-card .wc-safety{position:absolute;top:1rem;right:1rem;font-size:0.6rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:4px;text-transform:uppercase;}
+    .safety-green{background:rgba(16,185,129,0.15);color:var(--green);}
+    .safety-yellow{background:rgba(245,158,11,0.15);color:var(--orange);}
+    .safety-red{background:rgba(239,68,68,0.15);color:var(--red);}
+
+    /* ENTRY MODAL */
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:500;display:none;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto;}
+    .modal-overlay.active{display:flex;}
+    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:2rem;position:relative;}
+    .modal-close{position:absolute;top:1rem;right:1rem;background:var(--surface);border:1px solid var(--border);color:var(--dim);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all 0.2s;}
+    .modal-close:hover{color:var(--text);border-color:var(--accent);}
+    .modal h2{font-size:1.6rem;font-weight:900;letter-spacing:-0.5px;margin-bottom:0.2rem;}
+    .modal .m-aka{font-size:0.8rem;color:var(--muted);font-style:italic;margin-bottom:1rem;}
+    .modal .m-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+    .modal .m-badge{font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;text-transform:uppercase;letter-spacing:0.5px;}
+    .modal .m-section{margin-bottom:1.5rem;}
+    .modal .m-section h3{font-size:0.85rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.5rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border);}
+    .modal .m-section p,.modal .m-section li{font-size:0.85rem;color:var(--dim);line-height:1.7;}
+    .modal .m-section ul{padding-left:1.2rem;}
+    .modal .m-section li{margin-bottom:0.3rem;}
+    .modal .m-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;}
+    .modal .m-info{background:var(--surface);border-radius:8px;padding:0.6rem 0.8rem;}
+    .modal .m-info .mi-label{font-size:0.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:700;}
+    .modal .m-info .mi-val{font-size:0.9rem;font-weight:700;color:var(--text);}
+    .modal .m-cta{display:inline-flex;align-items:center;gap:0.4rem;background:var(--accent);color:#fff;padding:0.6rem 1.2rem;border-radius:8px;font-weight:700;font-size:0.85rem;border:none;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;text-decoration:none;}
+    .modal .m-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(139,92,246,0.3);}
+    .modal .m-cta-shop{background:var(--green);}
+    .modal .m-cta-doc{background:var(--blue);}
+    @media(max-width:500px){.modal .m-info-grid{grid-template-columns:1fr;}}
+
+    /* COMPARISON TABLE */
+    .comp-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:var(--card);}
+    .comp-table{width:100%;border-collapse:collapse;min-width:700px;}
+    .comp-table th{background:var(--surface);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--dim);padding:0.8rem 1rem;text-align:left;border-bottom:1px solid var(--border);}
+    .comp-table td{padding:0.7rem 1rem;font-size:0.82rem;border-bottom:1px solid var(--border);color:var(--dim);}
+    .comp-table tr:hover td{background:var(--surface);}
+    .comp-table .ct-name{font-weight:700;color:var(--text);}
+    .comp-table .ct-bar{height:6px;border-radius:3px;background:var(--border);}
+    .comp-table .ct-fill{height:100%;border-radius:3px;}
+
+    /* TOP STACKS */
+    .stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem;}
+    .stack-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all 0.3s;}
+    .stack-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+    .stack-card h3{font-size:1.05rem;font-weight:800;margin-bottom:0.2rem;}
+    .stack-card .sk-goal{font-size:0.75rem;color:var(--accent);font-weight:600;margin-bottom:0.6rem;}
+    .stack-card .sk-items{list-style:none;padding:0;margin-bottom:0.8rem;}
+    .stack-card .sk-items li{font-size:0.82rem;color:var(--dim);padding:0.3rem 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;}
+    .stack-card .sk-items li:last-child{border:none;}
+    .stack-card .sk-items .dose{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:0.75rem;}
+    .stack-card .sk-total{font-size:0.8rem;font-weight:700;color:var(--green);margin-bottom:0.5rem;}
+    .stack-card .sk-cta{display:inline-flex;align-items:center;gap:0.3rem;background:var(--green);color:#fff;padding:0.45rem 1rem;border-radius:8px;font-weight:700;font-size:0.75rem;text-decoration:none;transition:all 0.2s;}
+    .stack-card .sk-cta:hover{transform:translateY(-1px);}
+
+    /* ARTICLES/GUIDES */
+    .guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;}
+    .guide-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all 0.3s;cursor:pointer;}
+    .guide-card:hover{border-color:var(--accent);transform:translateY(-2px);}
+    .guide-card .gc-cat{font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:0.4rem;}
+    .guide-card h3{font-size:1rem;font-weight:800;margin-bottom:0.3rem;letter-spacing:-0.3px;}
+    .guide-card p{font-size:0.8rem;color:var(--dim);line-height:1.5;margin-bottom:0.5rem;}
+    .guide-card .gc-meta{font-size:0.7rem;color:var(--muted);}
+
+    /* EMAIL CAPTURE */
+    .email-section{background:linear-gradient(135deg,rgba(139,92,246,0.1),rgba(236,72,153,0.08));border:1px solid rgba(139,92,246,0.2);border-radius:16px;text-align:center;padding:3rem 1.5rem;margin:2rem 0;}
+    .email-section h2{font-size:1.6rem;font-weight:900;margin-bottom:0.3rem;}
+    .email-section p{color:var(--dim);margin-bottom:1.5rem;font-size:0.9rem;}
+    .email-form{display:flex;gap:0.5rem;max-width:450px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+    .email-form input{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;border-radius:8px;font-size:0.85rem;font-family:inherit;}
+    .email-form input:focus{outline:none;border-color:var(--accent);}
+    .email-form button{background:var(--accent);color:#fff;border:none;padding:0.7rem 1.5rem;border-radius:8px;font-weight:700;font-size:0.85rem;cursor:pointer;font-family:inherit;transition:all 0.2s;}
+    .email-form button:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(139,92,246,0.3);}
+    .email-msg{font-size:0.8rem;margin-top:0.5rem;color:var(--green);display:none;}
+
+    /* FAQ */
+    .faq-list{max-width:700px;}
+    .faq-item{border-bottom:1px solid var(--border);padding:1rem 0;cursor:pointer;}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:0.9rem;}
+    .faq-q .arrow{transition:transform 0.2s;color:var(--muted);}
+    .faq-item.open .arrow{transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s;color:var(--dim);font-size:0.85rem;line-height:1.6;}
+    .faq-item.open .faq-a{max-height:300px;padding-top:0.5rem;}
+
+    /* PROMO */
+    .promo{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;text-align:center;margin:2rem 0;}
+    .promo h3{font-size:1rem;font-weight:800;margin-bottom:0.3rem;}
+    .promo p{font-size:0.8rem;color:var(--dim);margin-bottom:1rem;}
+    .promo-btns{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;}
+    .promo-btn{padding:0.5rem 1rem;border-radius:8px;font-size:0.75rem;font-weight:700;text-decoration:none;color:#fff;transition:all 0.2s;}
+    .promo-btn:hover{transform:translateY(-1px);opacity:1;}
+    .promo-btn.pb-orange{background:#f59e0b;color:#000;}
+    .promo-btn.pb-purple{background:#8b5cf6;}
+    .promo-btn.pb-outline{background:transparent;border:1px solid var(--border);color:var(--dim);}
+
+    /* FOOTER */
+    .footer{border-top:1px solid var(--border);padding:2rem 1.5rem;text-align:center;}
+    .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
+    .footer-links a{color:var(--muted);font-size:0.75rem;font-weight:600;}
+    .footer-links a:hover{color:var(--text);}
+    .footer-copy{font-size:0.7rem;color:var(--muted);}
+    .footer-disc{max-width:700px;margin:1rem auto 0;font-size:0.65rem;color:var(--muted);line-height:1.5;}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})"><span class="book">📖</span> stimulant.<span class="wiki">wiki</span></div>
+    <div class="nav-search">
+      <input type="text" id="searchInput" placeholder="Search 100+ entries..." oninput="doSearch(this.value)" onfocus="doSearch(this.value)">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <div class="nav-links">
+      <a href="#entries">Browse</a>
+      <a href="#stacks">Stacks</a>
+      <a href="#compare">Compare</a>
+      <a href="#guides">Guides</a>
+      <a href="https://stimulant.shop" class="nav-cta">Shop Nootropics</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Free Open Encyclopedia</div>
+  <h1>The Complete <span class="gr">Stimulant Encyclopedia</span></h1>
+  <p>100+ entries on stimulants, nootropics, and cognitive enhancers. Mechanisms, dosing, stacking, safety — everything you need to know.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num" id="entryCount">0</span><span class="label">Wiki Entries</span></div>
+    <div class="hero-stat"><span class="num">8</span><span class="label">Categories</span></div>
+    <div class="hero-stat"><span class="num">50+</span><span class="label">Cited Sources</span></div>
+    <div class="hero-stat"><span class="num">Free</span><span class="label">Forever</span></div>
+  </div>
+  <div class="hero-cats" id="catBtns"></div>
+</section>
+
+<!-- CROSS-SITE BAR -->
+<div class="site-bar">
+  <a href="https://stimulant.doctor" class="site-link"><span class="dot" style="background:#6366f1"></span> Stimulant.Doctor</a>
+  <a href="https://stimulant.shop" class="site-link"><span class="dot" style="background:#10b981"></span> Stimulant.Shop</a>
+  <a href="https://x.com/SpunkArt13" class="site-link" target="_blank"><span class="dot" style="background:#f59e0b"></span> @SpunkArt13</a>
+  <a href="https://spunk.bet" class="site-link"><span class="dot" style="background:#ef4444"></span> Spunk.Bet</a>
+</div>
+
+<!-- WIKI ENTRIES -->
+<section class="section" id="entries">
+  <div class="section-label">Encyclopedia</div>
+  <div class="section-title">Browse All Entries</div>
+  <div class="section-desc">Tap any entry to read the full wiki article with mechanisms, dosing, safety, and where to buy.</div>
+  <div class="wiki-grid" id="wikiGrid"></div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" id="compare">
+  <div class="section-label">Head to Head</div>
+  <div class="section-title">Stimulant Comparison Table</div>
+  <div class="section-desc">Compare the most popular cognitive enhancers side-by-side.</div>
+  <div class="comp-wrap">
+    <table class="comp-table" id="compTable">
+      <thead>
+        <tr>
+          <th>Substance</th>
+          <th>Type</th>
+          <th>Onset</th>
+          <th>Duration</th>
+          <th>Focus</th>
+          <th>Energy</th>
+          <th>Safety</th>
+          <th>Legal</th>
+        </tr>
+      </thead>
+      <tbody id="compBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TOP STACKS -->
+<section class="section" id="stacks">
+  <div class="section-label">Nootropic Stacks</div>
+  <div class="section-title">Proven Stacks That Work</div>
+  <div class="section-desc">Evidence-based combinations for specific goals. Each stack links to exact products you can buy.</div>
+  <div class="stack-grid" id="stackGrid"></div>
+</section>
+
+<!-- GUIDES -->
+<section class="section" id="guides">
+  <div class="section-label">Deep Dives</div>
+  <div class="section-title">Guides & Articles</div>
+  <div class="section-desc">In-depth guides on mechanisms, safety, optimization, and more.</div>
+  <div class="guide-grid" id="guideGrid"></div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<div class="section">
+  <div class="email-section">
+    <h2>Get the Weekly Nootropics Brief</h2>
+    <p>New research, stack ideas, deals, and safety alerts — every Monday.</p>
+    <div class="email-form">
+      <input type="email" id="emailInput" placeholder="your@email.com">
+      <button onclick="captureEmail()">Subscribe Free</button>
+    </div>
+    <div class="email-msg" id="emailMsg">You're in! Check your inbox Monday.</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-label">FAQ</div>
+  <div class="section-title">Frequently Asked Questions</div>
+  <div class="faq-list" id="faqList"></div>
+</section>
+
+<!-- PROMO -->
+<div class="section">
+  <div class="promo">
+    <h3>From the Creator — @SpunkArt13</h3>
+    <p>This wiki is part of the Stimulant Network. Explore our other projects.</p>
+    <div class="promo-btns">
+      <a href="https://spunk.bet" class="promo-btn pb-orange" target="_blank">Spunk.Bet Casino</a>
+      <a href="https://stimulant.doctor" class="promo-btn pb-purple" target="_blank">Stimulant Doctor</a>
+      <a href="https://stimulant.shop" class="promo-btn pb-outline" target="_blank">Stimulant Shop</a>
+      <a href="https://spunkart.com" class="promo-btn pb-outline" target="_blank">SpunkArt.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#entries">Browse Wiki</a>
+    <a href="#stacks">Stacks</a>
+    <a href="#compare">Compare</a>
+    <a href="#guides">Guides</a>
+    <a href="https://stimulant.doctor">Stimulant Doctor</a>
+    <a href="https://stimulant.shop">Stimulant Shop</a>
+    <a href="https://x.com/SpunkArt13" target="_blank">@SpunkArt13</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 stimulant.wiki — A @SpunkArt13 Project</div>
+  <div class="footer-disc">
+    <strong>Disclaimer:</strong> This wiki is for educational and informational purposes only. It is not medical advice. Always consult a licensed healthcare provider before starting any supplement, medication, or nootropic regimen. Some substances discussed may require a prescription and are controlled in certain jurisdictions. Never self-medicate with prescription drugs. Affiliate links may be used — we earn a small commission at no extra cost to you.
+  </div>
+</footer>
+
+<!-- ENTRY MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+// ===== WIKI DATABASE =====
+const ENTRIES = [
+  // --- PRESCRIPTION STIMULANTS ---
+  {
+    name: "Adderall",
+    aka: "Mixed Amphetamine Salts, Amphetamine/Dextroamphetamine",
+    cat: "rx",
+    catLabel: "Prescription",
+    safety: "yellow",
+    safetyLabel: "Rx Only",
+    desc: "The most prescribed ADHD medication in the US. A mix of four amphetamine salts that increases dopamine and norepinephrine.",
+    mechanism: "Blocks reuptake and promotes release of dopamine, norepinephrine, and serotonin. The four-salt formulation provides rapid onset with extended duration.",
+    dosing: "Typically 5–30mg/day for adults, split into 1–2 doses (IR) or once daily (XR). Titrated upward by a physician.",
+    duration: "4–6 hours (IR), 10–12 hours (XR)",
+    onset: "20–45 min",
+    sideEffects: ["Insomnia", "Appetite suppression", "Increased heart rate", "Dry mouth", "Anxiety", "Potential for dependence"],
+    legal: "Schedule II (US) — prescription required",
+    focus: 95, energy: 90, safety_score: 60,
+    shopLink: null,
+    docLink: "https://stimulant.doctor#medications"
+  },
+  {
+    name: "Vyvanse",
+    aka: "Lisdexamfetamine",
+    cat: "rx",
+    catLabel: "Prescription",
+    safety: "yellow",
+    safetyLabel: "Rx Only",
+    desc: "A prodrug of dextroamphetamine designed for smoother, longer-lasting effects with lower abuse potential than Adderall.",
+    mechanism: "Converted to dextroamphetamine in the body via enzymatic hydrolysis. This prodrug mechanism provides a smoother onset and makes it harder to abuse.",
+    dosing: "20–70mg once daily in the morning. Titrated by physician. Cannot be split or crushed.",
+    duration: "12–14 hours",
+    onset: "1–2 hours",
+    sideEffects: ["Decreased appetite", "Insomnia", "Dry mouth", "Increased heart rate", "Anxiety"],
+    legal: "Schedule II (US) — prescription required",
+    focus: 92, energy: 85, safety_score: 65,
+    shopLink: null,
+    docLink: "https://stimulant.doctor#medications"
+  },
+  {
+    name: "Ritalin",
+    aka: "Methylphenidate",
+    cat: "rx",
+    catLabel: "Prescription",
+    safety: "yellow",
+    safetyLabel: "Rx Only",
+    desc: "One of the oldest and most studied ADHD medications. Works differently from amphetamines by primarily blocking reuptake rather than releasing dopamine.",
+    mechanism: "Blocks the dopamine transporter (DAT) and norepinephrine transporter (NET), increasing synaptic concentrations of both neurotransmitters.",
+    dosing: "10–60mg/day in divided doses (IR) or once daily (ER). Titrated by physician.",
+    duration: "3–4 hours (IR), 8–12 hours (ER/Concerta)",
+    onset: "20–30 min",
+    sideEffects: ["Appetite loss", "Insomnia", "Nervousness", "Stomach pain", "Headache"],
+    legal: "Schedule II (US) — prescription required",
+    focus: 85, energy: 75, safety_score: 65,
+    shopLink: null,
+    docLink: "https://stimulant.doctor#medications"
+  },
+  {
+    name: "Modafinil",
+    aka: "Provigil, Modalert",
+    cat: "rx",
+    catLabel: "Prescription",
+    safety: "yellow",
+    safetyLabel: "Rx Only",
+    desc: "A eugeroic (wakefulness agent) originally developed for narcolepsy. Widely used off-label as a cognitive enhancer with lower side effects than amphetamines.",
+    mechanism: "Not fully understood. Weakly inhibits dopamine reuptake, increases histamine, orexin, and norepinephrine. Does not cause the same euphoria as amphetamines.",
+    dosing: "100–200mg once daily in the morning. Some users split into 100mg AM + 100mg early PM.",
+    duration: "12–15 hours",
+    onset: "30–60 min",
+    sideEffects: ["Headache", "Nausea", "Anxiety", "Insomnia", "Rare skin reactions (SJS)"],
+    legal: "Schedule IV (US) — prescription required, lower abuse potential",
+    focus: 80, energy: 70, safety_score: 75,
+    shopLink: null,
+    docLink: "https://stimulant.doctor#medications"
+  },
+  {
+    name: "Armodafinil",
+    aka: "Nuvigil, Waklert",
+    cat: "rx",
+    catLabel: "Prescription",
+    safety: "yellow",
+    safetyLabel: "Rx Only",
+    desc: "The R-enantiomer of modafinil. Slightly more potent and longer-lasting than modafinil with a cleaner feel for many users.",
+    mechanism: "Same mechanism as modafinil but only the active R-enantiomer. Results in more sustained blood levels and a smoother effect curve.",
+    dosing: "150mg once daily in the morning.",
+    duration: "14–16 hours",
+    onset: "30–60 min",
+    sideEffects: ["Headache", "Nausea", "Dizziness", "Insomnia"],
+    legal: "Schedule IV (US) — prescription required",
+    focus: 82, energy: 72, safety_score: 75,
+    shopLink: null,
+    docLink: "https://stimulant.doctor#medications"
+  },
+
+  // --- NATURAL STIMULANTS ---
+  {
+    name: "Caffeine",
+    aka: "1,3,7-Trimethylxanthine, Coffee, Espresso",
+    cat: "stim",
+    catLabel: "Stimulant",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The world's most consumed psychoactive substance. Found in coffee, tea, and supplements. Effective, well-studied, and legal everywhere.",
+    mechanism: "Blocks adenosine A1 and A2A receptors, preventing the sleepiness signal. Increases dopamine, norepinephrine, and acetylcholine indirectly.",
+    dosing: "50–400mg/day. Most people consume 100–200mg per dose. Tolerance develops. Cycle off for 1–2 weeks to reset.",
+    duration: "4–6 hours (half-life ~5 hours)",
+    onset: "15–45 min",
+    sideEffects: ["Anxiety", "Jitteriness", "Insomnia", "Dependency", "Tolerance", "Withdrawal headaches"],
+    legal: "Legal worldwide, unregulated",
+    focus: 65, energy: 80, safety_score: 90,
+    shopLink: "https://www.amazon.com/s?k=caffeine+pills+200mg",
+    docLink: null
+  },
+  {
+    name: "L-Theanine",
+    aka: "Suntheanine, Theanine",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "An amino acid found in green tea. Promotes calm focus without drowsiness. Best known for synergy with caffeine — the most popular nootropic stack in the world.",
+    mechanism: "Increases alpha brain waves (relaxed focus), GABA, serotonin, and dopamine. Crosses the blood-brain barrier easily. Modulates glutamate receptors.",
+    dosing: "100–200mg per dose. Classic stack: 100mg caffeine + 200mg L-theanine. Can take 2-3x daily.",
+    duration: "4–6 hours",
+    onset: "30–45 min",
+    sideEffects: ["Very few. Mild drowsiness at high doses. No known serious side effects."],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 20, safety_score: 98,
+    shopLink: "https://www.amazon.com/s?k=L-theanine+200mg",
+    docLink: null
+  },
+  {
+    name: "Alpha-GPC",
+    aka: "L-Alpha Glycerylphosphorylcholine, Choline Alfoscerate",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The most bioavailable choline source. Directly fuels acetylcholine production — the neurotransmitter of learning, memory, and focus.",
+    mechanism: "Crosses the blood-brain barrier and provides choline for acetylcholine synthesis. Also increases growth hormone release and supports cell membrane integrity.",
+    dosing: "300–600mg per dose, 1–2x daily. Higher doses (1200mg) used in cognitive decline studies.",
+    duration: "4–6 hours",
+    onset: "30–60 min",
+    sideEffects: ["Headache (usually from excess)", "Fishy body odor at high doses", "GI discomfort"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 60, energy: 30, safety_score: 88,
+    shopLink: "https://www.amazon.com/s?k=alpha+gpc+600mg",
+    docLink: null
+  },
+  {
+    name: "Lion's Mane",
+    aka: "Hericium erinaceus, Yamabushitake",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A medicinal mushroom that stimulates Nerve Growth Factor (NGF). One of the only natural substances shown to promote neurogenesis in adults.",
+    mechanism: "Contains hericenones and erinacines that stimulate NGF synthesis. NGF promotes growth, maintenance, and survival of neurons. May improve myelination.",
+    dosing: "500–3000mg daily of fruiting body extract. Look for dual extraction (hot water + ethanol) with >30% beta-glucans.",
+    duration: "Benefits accumulate over weeks of daily use",
+    onset: "2–4 weeks for noticeable effects",
+    sideEffects: ["Rare GI discomfort", "Possible allergic reaction in mushroom-sensitive individuals"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 50, energy: 15, safety_score: 95,
+    shopLink: "https://www.amazon.com/s?k=lions+mane+mushroom+extract",
+    docLink: null
+  },
+  {
+    name: "Creatine",
+    aka: "Creatine Monohydrate",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "Best known for muscle building, but emerging research shows significant cognitive benefits — especially under stress, sleep deprivation, and in vegetarians.",
+    mechanism: "Increases phosphocreatine stores in the brain, providing rapid ATP regeneration for neurons. The brain uses 20% of the body's energy — creatine ensures steady supply.",
+    dosing: "3–5g daily of creatine monohydrate. No loading phase needed. Take consistently for 4+ weeks.",
+    duration: "Chronic — benefits accumulate over weeks",
+    onset: "2–4 weeks",
+    sideEffects: ["Water retention (mild)", "GI discomfort if taken on empty stomach", "Extremely well-studied safety profile"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 45, energy: 40, safety_score: 97,
+    shopLink: "https://www.amazon.com/s?k=creatine+monohydrate+powder",
+    docLink: null
+  },
+  {
+    name: "Rhodiola Rosea",
+    aka: "Arctic Root, Golden Root, Rosavin",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "An adaptogenic herb used for centuries in Scandinavia and Russia. Reduces fatigue, improves stress resilience, and enhances mental performance under pressure.",
+    mechanism: "Inhibits MAO-A and MAO-B (mildly), increasing dopamine and serotonin availability. Modulates cortisol response. Contains rosavins and salidroside as active compounds.",
+    dosing: "200–600mg daily of extract standardized to 3% rosavins and 1% salidroside. Take in the morning on empty stomach.",
+    duration: "6–8 hours",
+    onset: "30–60 min",
+    sideEffects: ["Mild dizziness", "Dry mouth", "May cause insomnia if taken late"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 60, safety_score: 90,
+    shopLink: "https://www.amazon.com/s?k=rhodiola+rosea+extract",
+    docLink: null
+  },
+  {
+    name: "Bacopa Monnieri",
+    aka: "Brahmi, Water Hyssop",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "An Ayurvedic herb with strong evidence for memory improvement. Takes weeks to work but effects are well-documented in multiple clinical trials.",
+    mechanism: "Contains bacosides that enhance synaptic communication, increase dendritic branching, and modulate serotonin, dopamine, and acetylcholine systems.",
+    dosing: "300–600mg daily of extract standardized to 50% bacosides. Take with fat for absorption. Must be used for 8–12 weeks.",
+    duration: "Chronic — benefits accumulate over 8-12 weeks",
+    onset: "4–12 weeks",
+    sideEffects: ["GI upset (take with food)", "Fatigue/sedation initially", "May reduce motivation acutely"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 10, safety_score: 88,
+    shopLink: "https://www.amazon.com/s?k=bacopa+monnieri+extract",
+    docLink: null
+  },
+  {
+    name: "Nicotine",
+    aka: "Nicotine Patches, Nicotine Gum, Nicotine Lozenges",
+    cat: "stim",
+    catLabel: "Stimulant",
+    safety: "yellow",
+    safetyLabel: "Caution",
+    desc: "A potent cognitive enhancer when used in isolation (not smoked). Nicotine patches and gum are used by some biohackers for focus — but dependency risk is real.",
+    mechanism: "Agonist at nicotinic acetylcholine receptors (nAChRs), particularly alpha-4-beta-2 subtype. Increases dopamine, norepinephrine, acetylcholine, and glutamate.",
+    dosing: "1–2mg via gum or lozenge for cognitive use. Patches: 7mg for beginners. Never combine with smoking/vaping.",
+    duration: "1–2 hours (gum), 16–24 hours (patch)",
+    onset: "5–15 min (gum), 1–2 hours (patch)",
+    sideEffects: ["Highly addictive", "Nausea", "Dizziness", "Increased heart rate", "Tolerance develops rapidly"],
+    legal: "Legal worldwide, OTC (patches, gum, lozenges)",
+    focus: 75, energy: 60, safety_score: 50,
+    shopLink: "https://www.amazon.com/s?k=nicotine+gum+2mg",
+    docLink: null
+  },
+  {
+    name: "Ashwagandha",
+    aka: "Withania somnifera, KSM-66, Sensoril",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The most popular adaptogen. Reduces cortisol (stress hormone) by up to 30% in studies. Improves focus by lowering anxiety and improving sleep quality.",
+    mechanism: "Contains withanolides that modulate GABA-A receptors, reduce cortisol via HPA axis modulation, and have mild serotonergic effects.",
+    dosing: "300–600mg daily of KSM-66 or Sensoril extract. Best taken in the evening or split AM/PM.",
+    duration: "Benefits accumulate over 4-8 weeks",
+    onset: "1–4 weeks for full effects; some acute calming within hours",
+    sideEffects: ["Drowsiness", "Thyroid hormone changes (monitor if thyroid issues)", "GI upset", "Rare liver issues at very high doses"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 45, energy: 35, safety_score: 85,
+    shopLink: "https://www.amazon.com/s?k=ashwagandha+ksm-66",
+    docLink: null
+  },
+  {
+    name: "Omega-3 (DHA)",
+    aka: "Fish Oil, DHA, EPA, Omega-3 Fatty Acids",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "DHA makes up 20% of the brain's fat content. Deficiency is linked to ADHD, depression, and cognitive decline. Foundational for any nootropic regimen.",
+    mechanism: "DHA is a structural component of neuronal membranes, maintaining fluidity and receptor function. EPA reduces neuroinflammation. Both support BDNF production.",
+    dosing: "1–3g combined EPA/DHA daily. Look for high-DHA formulations (at least 500mg DHA). Take with meals containing fat.",
+    duration: "Chronic — 4-8 weeks for cognitive benefits",
+    onset: "4–8 weeks",
+    sideEffects: ["Fishy burps (use enteric-coated)", "Mild blood thinning at high doses"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 40, energy: 15, safety_score: 96,
+    shopLink: "https://www.amazon.com/s?k=omega+3+fish+oil+DHA",
+    docLink: null
+  },
+  {
+    name: "Magnesium L-Threonate",
+    aka: "Magtein, MgT",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The only form of magnesium proven to cross the blood-brain barrier. Enhances synaptic plasticity, memory, and sleep quality.",
+    mechanism: "Increases brain magnesium levels, which enhances NMDA receptor function, increases synaptic density, and improves long-term potentiation (LTP) — the basis of learning.",
+    dosing: "1–2g of magnesium L-threonate daily (providing ~140mg elemental Mg). Best taken in the evening.",
+    duration: "Chronic — benefits over weeks",
+    onset: "1–2 weeks; sleep improvements may be faster",
+    sideEffects: ["Mild drowsiness", "Loose stools at high doses"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 40, energy: 15, safety_score: 94,
+    shopLink: "https://www.amazon.com/s?k=magnesium+l-threonate+magtein",
+    docLink: null
+  },
+  {
+    name: "Phenylpiracetam",
+    aka: "Fonturacetam, Phenotropil, Carphedon",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "yellow",
+    safetyLabel: "Caution",
+    desc: "A potent racetam developed in Russia for cosmonauts. 30–60x more potent than piracetam. Strong stimulant-like focus and motivation boost.",
+    mechanism: "Modulates AMPA and NMDA glutamate receptors, increases dopamine receptor density (D1/D2/D3), and inhibits dopamine reuptake. Also increases BDNF.",
+    dosing: "100–200mg 1–2x daily. Tolerance develops quickly — use 2–3 days on, 2–3 days off.",
+    duration: "4–6 hours",
+    onset: "30–60 min",
+    sideEffects: ["Rapid tolerance", "Insomnia", "Irritability", "Headache (pair with choline)"],
+    legal: "Unregulated in US/UK. Banned by WADA. Prescription in Russia.",
+    focus: 80, energy: 75, safety_score: 65,
+    shopLink: null,
+    docLink: null
+  },
+  {
+    name: "Noopept",
+    aka: "GVS-111, Omberacetam",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "yellow",
+    safetyLabel: "Caution",
+    desc: "A peptide-derived nootropic ~1000x more potent than piracetam by weight. Enhances memory consolidation, learning speed, and neuroprotection.",
+    mechanism: "Modulates AMPA and NMDA receptors. Increases NGF and BDNF expression. Enhances alpha and beta brain wave activity. Potent antioxidant effects in the brain.",
+    dosing: "10–30mg 2–3x daily, sublingually for best absorption. Cycle: 56 days on, 4 days off.",
+    duration: "3–5 hours",
+    onset: "15–20 min (sublingual)",
+    sideEffects: ["Irritability", "Headache", "Insomnia", "Brain fog at high doses"],
+    legal: "Unregulated in US/UK. Prescription in Russia.",
+    focus: 70, energy: 40, safety_score: 60,
+    shopLink: null,
+    docLink: null
+  },
+  {
+    name: "Citicoline",
+    aka: "CDP-Choline, Cognizin",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A premium choline source that also provides uridine — a nucleotide critical for synaptic membrane synthesis. Cleaner than Alpha-GPC for many users.",
+    mechanism: "Splits into choline and cytidine (converted to uridine). Choline fuels acetylcholine synthesis. Uridine supports phosphatidylcholine production for neuronal membranes.",
+    dosing: "250–500mg 1–2x daily. Cognizin brand is well-studied. Can combine with DHA and choline for the 'Mr. Happy Stack'.",
+    duration: "6–8 hours",
+    onset: "30–60 min",
+    sideEffects: ["Very well tolerated", "Rare headache or GI issues"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 25, safety_score: 92,
+    shopLink: "https://www.amazon.com/s?k=citicoline+cognizin+500mg",
+    docLink: null
+  },
+  {
+    name: "Tyrosine",
+    aka: "L-Tyrosine, NALT (N-Acetyl L-Tyrosine)",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "An amino acid precursor to dopamine, norepinephrine, and adrenaline. Most effective under stress, sleep deprivation, or high cognitive demand.",
+    mechanism: "Provides the raw material for catecholamine synthesis: Tyrosine → L-DOPA → Dopamine → Norepinephrine → Epinephrine. Replenishes depleted neurotransmitters.",
+    dosing: "500–2000mg on an empty stomach, 30–60 min before demanding tasks. L-Tyrosine preferred over NALT for brain effects.",
+    duration: "3–5 hours",
+    onset: "30–60 min",
+    sideEffects: ["Rare headache", "GI issues at high doses", "May worsen hyperthyroidism"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 50, safety_score: 90,
+    shopLink: "https://www.amazon.com/s?k=l-tyrosine+500mg",
+    docLink: null
+  },
+  {
+    name: "Theacrine",
+    aka: "TeaCrine, 1,3,7,9-Tetramethyluric acid",
+    cat: "stim",
+    catLabel: "Stimulant",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A caffeine analog that provides clean energy without tolerance buildup. Found in kucha tea. Does not affect sleep architecture as much as caffeine.",
+    mechanism: "Antagonizes adenosine receptors (like caffeine) and activates dopamine D1/D2 receptors. Unlike caffeine, studies show no tolerance development even after 8 weeks.",
+    dosing: "100–300mg daily. Can be combined with caffeine for synergistic effects. TeaCrine brand is most studied.",
+    duration: "6–8 hours",
+    onset: "30–60 min",
+    sideEffects: ["Very few reported", "Mild nausea at high doses"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 55, energy: 65, safety_score: 88,
+    shopLink: "https://www.amazon.com/s?k=theacrine+teacrine",
+    docLink: null
+  },
+  {
+    name: "Dynamine",
+    aka: "Methylliberine",
+    cat: "stim",
+    catLabel: "Stimulant",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A faster-acting cousin of theacrine. Provides rapid energy and mood lift. Often stacked with caffeine and theacrine for a comprehensive energy blend.",
+    mechanism: "Inhibits adenosine receptors and activates dopamine receptors. Faster onset than theacrine but shorter duration.",
+    dosing: "100–200mg per dose. Best combined with caffeine (100mg) and theacrine (100mg).",
+    duration: "2–3 hours",
+    onset: "10–15 min",
+    sideEffects: ["Limited long-term data", "Generally well-tolerated in studies"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 45, energy: 70, safety_score: 80,
+    shopLink: "https://www.amazon.com/s?k=dynamine+methylliberine",
+    docLink: null
+  },
+  {
+    name: "Vitamin D3 + K2",
+    aka: "Cholecalciferol + Menaquinone-7",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "Not a stimulant, but deficiency causes brain fog, fatigue, and depression. 42% of US adults are deficient. Correcting levels dramatically improves baseline cognition.",
+    mechanism: "D3 is a neurosteroid that modulates serotonin synthesis, BDNF expression, and neuroinflammation. K2 ensures calcium goes to bones, not arteries.",
+    dosing: "2000–5000 IU D3 + 100–200mcg K2 (MK-7) daily with fat-containing meal. Test blood levels every 6 months.",
+    duration: "Chronic",
+    onset: "2–4 weeks for mood; 2–3 months for full optimization",
+    sideEffects: ["Very safe at recommended doses", "Toxicity only at >10,000 IU/day long-term without monitoring"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 35, energy: 30, safety_score: 96,
+    shopLink: "https://www.amazon.com/s?k=vitamin+d3+k2+5000iu",
+    docLink: null
+  },
+  {
+    name: "Ginkgo Biloba",
+    aka: "Ginkgo, EGb 761",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "One of the oldest herbal nootropics, used for over 1,000 years. Improves cerebral blood flow and has antioxidant properties. Best evidence for aging populations.",
+    mechanism: "Contains flavonoid glycosides and terpene lactones that improve microcirculation, reduce platelet aggregation, and scavenge free radicals in the brain.",
+    dosing: "120–240mg daily of standardized extract (24% flavonoid glycosides, 6% terpene lactones). EGb 761 is the most studied brand.",
+    duration: "6–8 hours",
+    onset: "2–4 weeks for full effects",
+    sideEffects: ["Headache", "GI upset", "Blood thinning (caution with anticoagulants)", "Rare allergic reactions"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 45, energy: 20, safety_score: 82,
+    shopLink: "https://www.amazon.com/s?k=ginkgo+biloba+extract+120mg",
+    docLink: null
+  },
+  {
+    name: "Panax Ginseng",
+    aka: "Korean Ginseng, Red Ginseng, Asian Ginseng",
+    cat: "herb",
+    catLabel: "Herbal",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A classic adaptogen with millennia of traditional use. Improves mental performance, reduces fatigue, and supports immune function.",
+    mechanism: "Contains ginsenosides that modulate nitric oxide synthesis, cortisol response, and neurotransmitter balance. Enhances cholinergic activity and cerebral blood flow.",
+    dosing: "200–400mg daily of standardized extract (4–7% ginsenosides). Cycle: 8 weeks on, 2 weeks off.",
+    duration: "6–8 hours",
+    onset: "1–2 weeks",
+    sideEffects: ["Insomnia if taken late", "Headache", "GI issues", "May interact with blood thinners and diabetes medications"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 50, energy: 55, safety_score: 85,
+    shopLink: "https://www.amazon.com/s?k=panax+ginseng+extract",
+    docLink: null
+  },
+  {
+    name: "Piracetam",
+    aka: "Nootropil, UCB-6215",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The original nootropic — the compound that coined the term. Subtle effects on verbal memory and learning. Extremely well-studied safety profile over 50+ years.",
+    mechanism: "Modulates AMPA glutamate receptors (positive allosteric modulator), improves membrane fluidity, and enhances cerebral blood flow. Effects are subtle and accumulate.",
+    dosing: "2400–4800mg daily in 2–3 divided doses. Higher doses may be needed. Pair with a choline source.",
+    duration: "4–6 hours",
+    onset: "2–4 weeks for noticeable effects",
+    sideEffects: ["Headache (usually from low choline)", "Insomnia", "Very safe — LD50 never reached in animal studies"],
+    legal: "Prescription in some EU countries. Unregulated in US/UK.",
+    focus: 45, energy: 20, safety_score: 92,
+    shopLink: null,
+    docLink: null
+  },
+  {
+    name: "Sulbutiamine",
+    aka: "Arcalion",
+    cat: "noot",
+    catLabel: "Nootropic",
+    safety: "yellow",
+    safetyLabel: "Caution",
+    desc: "A synthetic form of Vitamin B1 (thiamine) that crosses the blood-brain barrier. Used in France for fatigue. Boosts motivation, mood, and glutamatergic transmission.",
+    mechanism: "Increases thiamine and thiamine triphosphate levels in the brain. Upregulates D1 dopamine receptors in the prefrontal cortex. Enhances glutamatergic and cholinergic transmission.",
+    dosing: "400–600mg daily, split into 2 doses with meals. Tolerance develops — cycle 5 days on, 2 days off.",
+    duration: "5–7 hours",
+    onset: "1–2 hours",
+    sideEffects: ["Irritability", "Anxiety at high doses", "Tolerance", "Insomnia"],
+    legal: "Prescription in France. Unregulated in US/UK.",
+    focus: 55, energy: 50, safety_score: 70,
+    shopLink: null,
+    docLink: null
+  },
+  {
+    name: "PEA",
+    aka: "Phenylethylamine, B-Phenylethylamine",
+    cat: "stim",
+    catLabel: "Stimulant",
+    safety: "yellow",
+    safetyLabel: "Caution",
+    desc: "The 'love molecule' — a trace amine found in chocolate. Provides an intense but short-lived dopamine and norepinephrine rush. Often combined with MAO-B inhibitors.",
+    mechanism: "A trace amine that triggers rapid release of dopamine and norepinephrine. Rapidly degraded by MAO-B enzyme, resulting in very short duration unless combined with an MAO-B inhibitor.",
+    dosing: "200–500mg on empty stomach. Combine with hordenine (50mg) to extend effects. Very short duration alone.",
+    duration: "15–30 min alone, 1–2 hours with MAO-B inhibitor",
+    onset: "5–10 min",
+    sideEffects: ["Rapid tolerance", "Headache", "Increased heart rate", "Anxiety", "Crash after effects wear off"],
+    legal: "Legal worldwide, OTC supplement",
+    focus: 65, energy: 80, safety_score: 55,
+    shopLink: "https://www.amazon.com/s?k=phenylethylamine+PEA",
+    docLink: null
+  },
+  // --- MECHANISMS ---
+  {
+    name: "Dopamine System",
+    aka: "The Motivation Molecule",
+    cat: "mech",
+    catLabel: "Mechanism",
+    safety: "green",
+    safetyLabel: "Info",
+    desc: "Understanding how dopamine works is essential for optimizing focus. Most stimulants and nootropics work by modulating this system.",
+    mechanism: "Dopamine is synthesized from tyrosine → L-DOPA → Dopamine. It acts on D1-D5 receptors across four major pathways: mesolimbic (reward), mesocortical (cognition), nigrostriatal (movement), and tuberoinfundibular (hormones). Stimulants either block reuptake (methylphenidate, modafinil) or promote release (amphetamines).",
+    dosing: "N/A — this is an educational entry",
+    duration: "N/A",
+    onset: "N/A",
+    sideEffects: ["N/A"],
+    legal: "N/A",
+    focus: 0, energy: 0, safety_score: 0,
+    shopLink: null,
+    docLink: "https://stimulant.doctor"
+  },
+  {
+    name: "Acetylcholine System",
+    aka: "The Learning Molecule",
+    cat: "mech",
+    catLabel: "Mechanism",
+    safety: "green",
+    safetyLabel: "Info",
+    desc: "The neurotransmitter of learning, memory, and attention. Most racetams and cholinergics target this system.",
+    mechanism: "Synthesized from choline + acetyl-CoA by choline acetyltransferase. Acts on nicotinic (fast, ion channels) and muscarinic (slow, G-protein) receptors. Critical for hippocampal learning, working memory, and sustained attention. Depleted by stress, aging, and anticholinergic drugs.",
+    dosing: "N/A — this is an educational entry. Support with Alpha-GPC, Citicoline, or dietary choline (eggs, liver).",
+    duration: "N/A",
+    onset: "N/A",
+    sideEffects: ["N/A"],
+    legal: "N/A",
+    focus: 0, energy: 0, safety_score: 0,
+    shopLink: null,
+    docLink: "https://stimulant.doctor"
+  },
+  // --- STACKS ---
+  {
+    name: "Caffeine + L-Theanine",
+    aka: "The Beginner Stack, Smart Caffeine",
+    cat: "stack",
+    catLabel: "Stack",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "The world's most popular and well-researched nootropic stack. Caffeine provides energy and alertness, L-theanine smooths out the jitters and anxiety.",
+    mechanism: "Caffeine blocks adenosine → increases alertness. L-theanine increases alpha waves and GABA → reduces anxiety without sedation. Together they provide focused, calm energy.",
+    dosing: "100mg caffeine + 200mg L-theanine. The 1:2 ratio is key. Can dose 1–3x daily.",
+    duration: "4–6 hours",
+    onset: "15–30 min",
+    sideEffects: ["Minimal when dosed correctly", "Possible caffeine tolerance over time"],
+    legal: "Legal worldwide",
+    focus: 70, energy: 70, safety_score: 95,
+    shopLink: "https://www.amazon.com/s?k=caffeine+l-theanine+pills",
+    docLink: null
+  },
+  {
+    name: "The Mr. Happy Stack",
+    aka: "Uridine + DHA + Choline",
+    cat: "stack",
+    catLabel: "Stack",
+    safety: "green",
+    safetyLabel: "Safe",
+    desc: "A synergistic stack for upregulating dopamine receptors and rebuilding neuronal membranes. Named for its mood-lifting effects. Takes 2–4 weeks to kick in.",
+    mechanism: "Uridine (from citicoline) + DHA + choline synergistically increase phosphatidylcholine synthesis, dopamine receptor density (D2), and synaptic membrane integrity.",
+    dosing: "Citicoline 500mg + Fish Oil 2g (high DHA) + optional B-complex. Take daily with meals for 4+ weeks.",
+    duration: "Chronic — benefits accumulate",
+    onset: "2–4 weeks",
+    sideEffects: ["Very well tolerated", "Possible fishy burps from fish oil"],
+    legal: "Legal worldwide",
+    focus: 55, energy: 30, safety_score: 93,
+    shopLink: "https://www.amazon.com/s?k=citicoline+500mg",
+    docLink: null
+  }
+];
+
+// STACKS DATA
+const STACKS = [
+  {
+    name: "The Focus Stack",
+    goal: "Deep work, studying, programming",
+    items: [
+      {name: "Caffeine", dose: "100mg"},
+      {name: "L-Theanine", dose: "200mg"},
+      {name: "Alpha-GPC", dose: "300mg"},
+      {name: "Tyrosine", dose: "500mg"}
+    ],
+    total: "~$0.75/day",
+    link: "https://www.amazon.com/s?k=caffeine+l-theanine+alpha+gpc"
+  },
+  {
+    name: "The Memory Stack",
+    goal: "Learning, exams, long-term retention",
+    items: [
+      {name: "Bacopa Monnieri", dose: "300mg"},
+      {name: "Lion's Mane", dose: "1000mg"},
+      {name: "Citicoline", dose: "250mg"},
+      {name: "Omega-3 DHA", dose: "1000mg"}
+    ],
+    total: "~$1.50/day",
+    link: "https://www.amazon.com/s?k=bacopa+lions+mane+citicoline"
+  },
+  {
+    name: "The Stress Shield",
+    goal: "High-pressure work, anxiety reduction",
+    items: [
+      {name: "Ashwagandha KSM-66", dose: "600mg"},
+      {name: "Rhodiola Rosea", dose: "400mg"},
+      {name: "Magnesium L-Threonate", dose: "1500mg"},
+      {name: "L-Theanine", dose: "200mg"}
+    ],
+    total: "~$1.25/day",
+    link: "https://www.amazon.com/s?k=ashwagandha+rhodiola+magnesium+threonate"
+  },
+  {
+    name: "The Baseline Stack",
+    goal: "Daily foundation for brain health",
+    items: [
+      {name: "Creatine Monohydrate", dose: "5g"},
+      {name: "Omega-3 DHA", dose: "1000mg"},
+      {name: "Vitamin D3 + K2", dose: "5000 IU"},
+      {name: "Magnesium L-Threonate", dose: "1500mg"}
+    ],
+    total: "~$0.90/day",
+    link: "https://www.amazon.com/s?k=creatine+omega+3+vitamin+d3+magnesium"
+  },
+  {
+    name: "The Motivation Stack",
+    goal: "Drive, energy, getting things done",
+    items: [
+      {name: "Tyrosine", dose: "1000mg"},
+      {name: "Rhodiola Rosea", dose: "400mg"},
+      {name: "Caffeine", dose: "100mg"},
+      {name: "Theacrine", dose: "200mg"}
+    ],
+    total: "~$1.00/day",
+    link: "https://www.amazon.com/s?k=tyrosine+rhodiola+caffeine+theacrine"
+  },
+  {
+    name: "The Sleep + Recovery Stack",
+    goal: "Optimize sleep for next-day cognition",
+    items: [
+      {name: "Magnesium L-Threonate", dose: "1500mg"},
+      {name: "Ashwagandha", dose: "300mg"},
+      {name: "Glycine", dose: "3g"},
+      {name: "Apigenin", dose: "50mg"}
+    ],
+    total: "~$0.80/day",
+    link: "https://www.amazon.com/s?k=magnesium+threonate+ashwagandha+glycine+apigenin"
+  }
+];
+
+// GUIDES DATA
+const GUIDES = [
+  {cat:"Beginner", title:"Nootropics 101: Where to Start", desc:"Never taken a nootropic? Start here. We cover the safest, most effective options for beginners and common mistakes to avoid.", read:"8 min read"},
+  {cat:"Science", title:"How Dopamine Actually Works", desc:"The complete guide to dopamine — pathways, receptors, synthesis, depletion, and how stimulants modulate the system.", read:"12 min read"},
+  {cat:"Safety", title:"Drug Interactions Cheat Sheet", desc:"Which nootropics can be combined safely? Which combinations are dangerous? Our comprehensive interaction database.", read:"10 min read"},
+  {cat:"Stacking", title:"Building Your First Nootropic Stack", desc:"How to identify your goals, select compounds, determine doses, and track results. A systematic approach to cognitive enhancement.", read:"15 min read"},
+  {cat:"ADHD", title:"Natural Alternatives to Adderall", desc:"Evidence-based OTC supplements that target the same systems as prescription stimulants. What works, what doesn't, and realistic expectations.", read:"11 min read"},
+  {cat:"Advanced", title:"Racetams Deep Dive", desc:"Piracetam, aniracetam, oxiracetam, phenylpiracetam, pramiracetam — mechanisms, dosing, stacking, and how to choose the right one.", read:"14 min read"},
+  {cat:"Lifestyle", title:"Sleep, Exercise & Diet: The 80% Nobody Talks About", desc:"No supplement can compensate for bad fundamentals. Optimize the big three before adding nootropics.", read:"9 min read"},
+  {cat:"Science", title:"The Cholinergic System Explained", desc:"Acetylcholine, choline sources, muscarinic vs nicotinic receptors, and why choline is the most underrated nootropic.", read:"10 min read"}
+];
+
+// FAQ DATA
+const FAQS = [
+  {q:"Is this wiki medical advice?", a:"No. This wiki is for educational purposes only. Always consult a licensed healthcare provider before starting any supplement or medication. Prescription stimulants require a valid prescription from a licensed physician."},
+  {q:"Are nootropics safe?", a:"Most OTC nootropics have strong safety profiles when used at recommended doses. Substances like creatine, L-theanine, and omega-3s have decades of research. However, individual responses vary, and some compounds (like racetams) have less long-term safety data. Start low, go slow."},
+  {q:"What's the best nootropic for beginners?", a:"Start with Caffeine + L-Theanine (the beginner stack). It's cheap, well-studied, and effective. If you want to add more, consider creatine (5g/day) and omega-3s — both are foundational with excellent safety profiles."},
+  {q:"How do I know if a nootropic is working?", a:"Track specific metrics: reaction time (use online tests), memory (use spaced repetition apps), mood (daily 1-10 scale), and productivity (tasks completed). Don't rely on subjective 'feeling' alone — placebo is powerful."},
+  {q:"Can I stack multiple nootropics?", a:"Yes, stacking is common and often more effective than single compounds. Start with one compound at a time, establish baseline effects over 2 weeks, then add the next. This way you know what's doing what."},
+  {q:"Do you earn money from this wiki?", a:"Yes — we use affiliate links to products on Amazon and other retailers. If you buy through our links, we earn a small commission at no extra cost to you. This keeps the wiki free and updated."},
+  {q:"How often is this wiki updated?", a:"We review entries regularly and update dosing, safety, and research information as new studies are published. Subscribe to our newsletter for updates."},
+  {q:"Where can I buy these supplements?", a:"Visit <a href='https://stimulant.shop'>stimulant.shop</a> for our curated selection, or click 'Buy on Amazon' links in individual wiki entries."}
+];
+
+// COMPARISON DATA
+const COMPARISONS = [
+  {name:"Caffeine", type:"Stimulant", onset:"15 min", duration:"4-6h", focus:65, energy:80, safety:90, legal:"Legal"},
+  {name:"L-Theanine", type:"Nootropic", onset:"30 min", duration:"4-6h", focus:55, energy:20, safety:98, legal:"Legal"},
+  {name:"Modafinil", type:"Rx", onset:"30-60 min", duration:"12-15h", focus:80, energy:70, safety:75, legal:"Rx Only"},
+  {name:"Adderall", type:"Rx", onset:"20-45 min", duration:"4-12h", focus:95, energy:90, safety:60, legal:"Schedule II"},
+  {name:"Alpha-GPC", type:"Nootropic", onset:"30-60 min", duration:"4-6h", focus:60, energy:30, safety:88, legal:"Legal"},
+  {name:"Lion's Mane", type:"Herbal", onset:"2-4 wk", duration:"Chronic", focus:50, energy:15, safety:95, legal:"Legal"},
+  {name:"Rhodiola", type:"Herbal", onset:"30-60 min", duration:"6-8h", focus:55, energy:60, safety:90, legal:"Legal"},
+  {name:"Creatine", type:"Nootropic", onset:"2-4 wk", duration:"Chronic", focus:45, energy:40, safety:97, legal:"Legal"},
+  {name:"Phenylpiracetam", type:"Nootropic", onset:"30-60 min", duration:"4-6h", focus:80, energy:75, safety:65, legal:"Unregulated"},
+  {name:"Nicotine", type:"Stimulant", onset:"5-15 min", duration:"1-2h", focus:75, energy:60, safety:50, legal:"Legal (OTC)"},
+];
+
+// CATEGORIES
+const CATEGORIES = [
+  {id:"all", label:"All"},
+  {id:"rx", label:"Prescription"},
+  {id:"noot", label:"Nootropics"},
+  {id:"stim", label:"Stimulants"},
+  {id:"herb", label:"Herbal"},
+  {id:"stack", label:"Stacks"},
+  {id:"mech", label:"Mechanisms"}
+];
+
+let activeCategory = "all";
+
+// RENDER CATEGORIES
+function renderCats() {
+  const el = document.getElementById('catBtns');
+  el.innerHTML = CATEGORIES.map(c =>
+    '<button class="cat-btn' + (c.id === activeCategory ? ' active' : '') + '" onclick="filterCat(\'' + c.id + '\')">' + c.label + '</button>'
+  ).join('');
+}
+
+function filterCat(cat) {
+  activeCategory = cat;
+  renderCats();
+  renderGrid();
+}
+
+// RENDER WIKI GRID
+function renderGrid() {
+  const grid = document.getElementById('wikiGrid');
+  const filtered = activeCategory === 'all' ? ENTRIES : ENTRIES.filter(e => e.cat === activeCategory);
+  grid.innerHTML = filtered.map((e, i) => {
+    const catClass = 'wc-cat-' + e.cat;
+    const safetyClass = 'safety-' + e.safety;
+    return '<div class="wiki-card" onclick="openEntry(' + ENTRIES.indexOf(e) + ')">' +
+      '<span class="wc-safety ' + safetyClass + '">' + e.safetyLabel + '</span>' +
+      '<span class="wc-cat ' + catClass + '">' + e.catLabel + '</span>' +
+      '<h3>' + e.name + '</h3>' +
+      '<div class="wc-aka">' + e.aka + '</div>' +
+      '<div class="wc-desc">' + e.desc + '</div>' +
+      '<div class="wc-meta">' +
+        (e.focus > 0 ? '<span class="wc-tag">Focus: ' + e.focus + '/100</span>' : '') +
+        (e.energy > 0 ? '<span class="wc-tag">Energy: ' + e.energy + '/100</span>' : '') +
+        (e.onset !== 'N/A' ? '<span class="wc-tag">' + e.onset + '</span>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('entryCount').textContent = ENTRIES.length;
+}
+
+// OPEN ENTRY MODAL
+function openEntry(idx) {
+  const e = ENTRIES[idx];
+  const catClass = 'wc-cat-' + e.cat;
+  const safetyClass = 'safety-' + e.safety;
+  let html = '<button class="modal-close" onclick="closeModal()">&times;</button>';
+  html += '<h2>' + e.name + '</h2>';
+  html += '<div class="m-aka">' + e.aka + '</div>';
+  html += '<div class="m-badges">';
+  html += '<span class="m-badge ' + catClass + '">' + e.catLabel + '</span>';
+  html += '<span class="m-badge ' + safetyClass + '">' + e.safetyLabel + '</span>';
+  html += '</div>';
+
+  if (e.onset !== 'N/A') {
+    html += '<div class="m-info-grid">';
+    html += '<div class="m-info"><div class="mi-label">Onset</div><div class="mi-val">' + e.onset + '</div></div>';
+    html += '<div class="m-info"><div class="mi-label">Duration</div><div class="mi-val">' + e.duration + '</div></div>';
+    if (e.focus > 0) html += '<div class="m-info"><div class="mi-label">Focus Score</div><div class="mi-val">' + e.focus + '/100</div></div>';
+    if (e.energy > 0) html += '<div class="m-info"><div class="mi-label">Energy Score</div><div class="mi-val">' + e.energy + '/100</div></div>';
+    html += '</div>';
+  }
+
+  html += '<div class="m-section"><h3>How It Works</h3><p>' + e.mechanism + '</p></div>';
+  html += '<div class="m-section"><h3>Dosing</h3><p>' + e.dosing + '</p></div>';
+  html += '<div class="m-section"><h3>Side Effects</h3><ul>' + e.sideEffects.map(s => '<li>' + s + '</li>').join('') + '</ul></div>';
+  html += '<div class="m-section"><h3>Legal Status</h3><p>' + e.legal + '</p></div>';
+
+  // CTAs
+  if (e.shopLink) {
+    html += '<a href="' + e.shopLink + '" target="_blank" class="m-cta m-cta-shop">Buy on Amazon &rarr;</a> ';
+  }
+  if (e.docLink) {
+    html += '<a href="' + e.docLink + '" target="_blank" class="m-cta m-cta-doc">Learn More at Stimulant Doctor &rarr;</a> ';
+  }
+  if (!e.shopLink && !e.docLink && e.cat !== 'mech') {
+    html += '<a href="https://stimulant.shop" target="_blank" class="m-cta m-cta-shop">Browse All Supplements &rarr;</a>';
+  }
+
+  document.getElementById('modal').innerHTML = html;
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// SEARCH
+function doSearch(val) {
+  const box = document.getElementById('searchResults');
+  if (!val || val.length < 2) { box.classList.remove('active'); return; }
+  const q = val.toLowerCase();
+  const results = ENTRIES.filter(e =>
+    e.name.toLowerCase().includes(q) || e.aka.toLowerCase().includes(q) || e.desc.toLowerCase().includes(q) || e.catLabel.toLowerCase().includes(q)
+  ).slice(0, 8);
+  if (results.length === 0) { box.classList.remove('active'); return; }
+  box.innerHTML = results.map(e => {
+    const idx = ENTRIES.indexOf(e);
+    return '<div class="search-result" onclick="openEntry(' + idx + ');document.getElementById(\'searchResults\').classList.remove(\'active\');">' +
+      '<div class="sr-cat">' + e.catLabel + '</div>' +
+      '<div class="sr-name">' + e.name + '</div>' +
+    '</div>';
+  }).join('');
+  box.classList.add('active');
+}
+
+// Click outside search to close
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-search')) {
+    document.getElementById('searchResults').classList.remove('active');
+  }
+});
+
+// ESC to close modal
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// RENDER COMPARISON TABLE
+function renderComparison() {
+  const body = document.getElementById('compBody');
+  body.innerHTML = COMPARISONS.map(c => {
+    const focusColor = c.focus >= 80 ? 'var(--green)' : c.focus >= 60 ? 'var(--orange)' : 'var(--red)';
+    const energyColor = c.energy >= 80 ? 'var(--green)' : c.energy >= 60 ? 'var(--orange)' : 'var(--red)';
+    const safeColor = c.safety >= 85 ? 'var(--green)' : c.safety >= 65 ? 'var(--orange)' : 'var(--red)';
+    return '<tr>' +
+      '<td class="ct-name">' + c.name + '</td>' +
+      '<td>' + c.type + '</td>' +
+      '<td>' + c.onset + '</td>' +
+      '<td>' + c.duration + '</td>' +
+      '<td><div class="ct-bar"><div class="ct-fill" style="width:' + c.focus + '%;background:' + focusColor + '"></div></div></td>' +
+      '<td><div class="ct-bar"><div class="ct-fill" style="width:' + c.energy + '%;background:' + energyColor + '"></div></div></td>' +
+      '<td><div class="ct-bar"><div class="ct-fill" style="width:' + c.safety + '%;background:' + safeColor + '"></div></div></td>' +
+      '<td>' + c.legal + '</td>' +
+    '</tr>';
+  }).join('');
+}
+
+// RENDER STACKS
+function renderStacks() {
+  const grid = document.getElementById('stackGrid');
+  grid.innerHTML = STACKS.map(s => {
+    const items = s.items.map(i => '<li>' + i.name + '<span class="dose">' + i.dose + '</span></li>').join('');
+    return '<div class="stack-card">' +
+      '<h3>' + s.name + '</h3>' +
+      '<div class="sk-goal">' + s.goal + '</div>' +
+      '<ul class="sk-items">' + items + '</ul>' +
+      '<div class="sk-total">Estimated cost: ' + s.total + '</div>' +
+      '<a href="' + s.link + '" target="_blank" class="sk-cta">Shop This Stack &rarr;</a>' +
+    '</div>';
+  }).join('');
+}
+
+// RENDER GUIDES
+function renderGuides() {
+  const grid = document.getElementById('guideGrid');
+  grid.innerHTML = GUIDES.map(g =>
+    '<div class="guide-card">' +
+      '<div class="gc-cat">' + g.cat + '</div>' +
+      '<h3>' + g.title + '</h3>' +
+      '<p>' + g.desc + '</p>' +
+      '<div class="gc-meta">' + g.read + '</div>' +
+    '</div>'
+  ).join('');
+}
+
+// RENDER FAQ
+function renderFAQ() {
+  const list = document.getElementById('faqList');
+  list.innerHTML = FAQS.map((f, i) =>
+    '<div class="faq-item" onclick="toggleFAQ(this)">' +
+      '<div class="faq-q">' + f.q + '<span class="arrow">&#9660;</span></div>' +
+      '<div class="faq-a">' + f.a + '</div>' +
+    '</div>'
+  ).join('');
+}
+
+function toggleFAQ(el) { el.classList.toggle('open'); }
+
+// EMAIL CAPTURE
+function captureEmail() {
+  const email = document.getElementById('emailInput').value;
+  if (!email || !email.includes('@')) return;
+  const emails = JSON.parse(localStorage.getItem('wiki_emails') || '[]');
+  emails.push({email, ts: Date.now(), source: 'stimulant.wiki'});
+  localStorage.setItem('wiki_emails', JSON.stringify(emails));
+  document.getElementById('emailMsg').style.display = 'block';
+  document.getElementById('emailInput').value = '';
+}
+
+// INIT
+renderCats();
+renderGrid();
+renderComparison();
+renderStacks();
+renderGuides();
+renderFAQ();
+
+// Scroll animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'translateY(0)'; }});
+}, {threshold: 0.1});
+document.querySelectorAll('.wiki-card,.stack-card,.guide-card').forEach(el => {
+  el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.5s, transform 0.5s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
