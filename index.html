@@ -1361,6 +1361,16 @@ document.querySelectorAll('.wiki-card,.stack-card,.guide-card').forEach(el => {
   el.style.opacity = 0; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.5s, transform 0.5s';
   observer.observe(el);
 });
+// Referral tracking
+(function(){
+  const p = new URLSearchParams(location.search);
+  const ref = p.get('ref') || p.get('r');
+  if (ref && /^[a-zA-Z0-9]{3,64}$/.test(ref)) {
+    if (!localStorage.getItem('sw_ref')) localStorage.setItem('sw_ref', ref);
+    if (typeof gtag === 'function') gtag('event', 'referral_visit', { referral_code: ref, source: 'stimulant_wiki' });
+    history.replaceState({}, '', location.pathname);
+  }
+})();
 </script>
 </body>
 </html>
