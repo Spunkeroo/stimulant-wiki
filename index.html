@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stimulant Wiki — The Complete Encyclopedia of Stimulants, Nootropics & Cognitive Enhancement</title>
+  <title>Stimulant Wiki — Stimulants, Nootropics & Cognitive Enhancement</title>
   <meta name="description" content="The internet's most comprehensive wiki on stimulants, nootropics, and cognitive enhancers. 100+ entries covering mechanisms, dosing, stacking, safety, and science.">
   <meta name="keywords" content="stimulant wiki, nootropics guide, caffeine, modafinil, Adderall, cognitive enhancement, nootropic stacks, brain supplements, focus drugs, ADHD medication guide">
   <meta property="og:title" content="Stimulant Wiki — The Complete Stimulant Encyclopedia">
@@ -11,6 +11,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stimulant.wiki">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SpunkArt13">
+  <meta name="twitter:title" content="Stimulant Wiki — The Complete Stimulant Encyclopedia">
+  <meta name="twitter:description" content="100+ entries on stimulants, nootropics, and cognitive enhancers. Free forever.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
   <link rel="canonical" href="https://stimulant.wiki">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -257,7 +260,7 @@
 <div class="site-bar">
   <a href="https://stimulant.doctor" class="site-link"><span class="dot" style="background:#6366f1"></span> Stimulant.Doctor</a>
   <a href="https://stimulant.shop" class="site-link"><span class="dot" style="background:#10b981"></span> Stimulant.Shop</a>
-  <a href="https://x.com/SpunkArt13" class="site-link" target="_blank"><span class="dot" style="background:#f59e0b"></span> @SpunkArt13</a>
+  <a href="https://x.com/SpunkArt13" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#f59e0b"></span> @SpunkArt13</a>
   <a href="https://spunk.bet" class="site-link"><span class="dot" style="background:#ef4444"></span> Spunk.Bet</a>
 </div>
 
@@ -335,10 +338,10 @@
     <h3>From the Creator — @SpunkArt13</h3>
     <p>This wiki is part of the Stimulant Network. Explore our other projects.</p>
     <div class="promo-btns">
-      <a href="https://spunk.bet" class="promo-btn pb-orange" target="_blank">Spunk.Bet Casino</a>
-      <a href="https://stimulant.doctor" class="promo-btn pb-purple" target="_blank">Stimulant Doctor</a>
-      <a href="https://stimulant.shop" class="promo-btn pb-outline" target="_blank">Stimulant Shop</a>
-      <a href="https://spunkart.com" class="promo-btn pb-outline" target="_blank">SpunkArt.com</a>
+      <a href="https://spunk.bet" class="promo-btn pb-orange" target="_blank" rel="noopener noreferrer">Spunk.Bet Casino</a>
+      <a href="https://stimulant.doctor" class="promo-btn pb-purple" target="_blank" rel="noopener noreferrer">Stimulant Doctor</a>
+      <a href="https://stimulant.shop" class="promo-btn pb-outline" target="_blank" rel="noopener noreferrer">Stimulant Shop</a>
+      <a href="https://spunkart.com" class="promo-btn pb-outline" target="_blank" rel="noopener noreferrer">SpunkArt.com</a>
     </div>
   </div>
 </div>
@@ -352,7 +355,7 @@
     <a href="#guides">Guides</a>
     <a href="https://stimulant.doctor">Stimulant Doctor</a>
     <a href="https://stimulant.shop">Stimulant Shop</a>
-    <a href="https://x.com/SpunkArt13" target="_blank">@SpunkArt13</a>
+    <a href="https://x.com/SpunkArt13" target="_blank" rel="noopener noreferrer">@SpunkArt13</a>
   </div>
   <div class="footer-copy">&copy; 2026 stimulant.wiki — A @SpunkArt13 Project</div>
   <div class="footer-disc">
@@ -1144,13 +1147,13 @@ function openEntry(idx) {
 
   // CTAs
   if (e.shopLink) {
-    html += '<a href="' + e.shopLink + '" target="_blank" class="m-cta m-cta-shop">Buy on Amazon &rarr;</a> ';
+    html += '<a href="' + e.shopLink + '" target="_blank" rel="noopener noreferrer" class="m-cta m-cta-shop">Buy on Amazon &rarr;</a> ';
   }
   if (e.docLink) {
-    html += '<a href="' + e.docLink + '" target="_blank" class="m-cta m-cta-doc">Learn More at Stimulant Doctor &rarr;</a> ';
+    html += '<a href="' + e.docLink + '" target="_blank" rel="noopener noreferrer" class="m-cta m-cta-doc">Learn More at Stimulant Doctor &rarr;</a> ';
   }
   if (!e.shopLink && !e.docLink && e.cat !== 'mech') {
-    html += '<a href="https://stimulant.shop" target="_blank" class="m-cta m-cta-shop">Browse All Supplements &rarr;</a>';
+    html += '<a href="https://stimulant.shop" target="_blank" rel="noopener noreferrer" class="m-cta m-cta-shop">Browse All Supplements &rarr;</a>';
   }
 
   document.getElementById('modal').innerHTML = html;
@@ -1224,7 +1227,7 @@ function renderStacks() {
       '<div class="sk-goal">' + s.goal + '</div>' +
       '<ul class="sk-items">' + items + '</ul>' +
       '<div class="sk-total">Estimated cost: ' + s.total + '</div>' +
-      '<a href="' + s.link + '" target="_blank" class="sk-cta">Shop This Stack &rarr;</a>' +
+      '<a href="' + s.link + '" target="_blank" rel="noopener noreferrer" class="sk-cta">Shop This Stack &rarr;</a>' +
     '</div>';
   }).join('');
 }
@@ -1261,7 +1264,7 @@ function captureEmail() {
   if (!email || !email.includes('@')) return;
   const emails = JSON.parse(localStorage.getItem('wiki_emails') || '[]');
   emails.push({email, ts: Date.now(), source: 'stimulant.wiki'});
-  localStorage.setItem('wiki_emails', JSON.stringify(emails));
+  localStorage.setItem('wiki_emails', JSON.stringify(emails.slice(-500)));
   document.getElementById('emailMsg').style.display = 'block';
   document.getElementById('emailInput').value = '';
 }
