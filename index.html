@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'none'; navigate-to 'self' https://*.hop.clickbank.net https://www.amazon.com; object-src 'none'; base-uri 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://subscribe-forms.beehiiv.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://subscribe-forms.beehiiv.com; navigate-to 'self' https://*.hop.clickbank.net https://www.amazon.com; object-src 'none'; base-uri 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stimulant Wiki — Stimulants, Nootropics & Cognitive Enhancement</title>
   <meta name="description" content="The internet's most comprehensive wiki on stimulants, nootropics, and cognitive enhancers. 100+ entries covering mechanisms, dosing, stacking, safety, and science.">
@@ -388,16 +388,13 @@
   <div class="guide-grid" id="guideGrid"></div>
 </section>
 
-<!-- EMAIL CAPTURE -->
+<!-- EMAIL CAPTURE — Beehiiv -->
 <div class="section">
   <div class="email-section">
     <h2>Get the Weekly Nootropics Brief</h2>
     <p>New research, stack ideas, deals, and safety alerts — every Monday.</p>
-    <div class="email-form">
-      <input type="email" id="emailInput" placeholder="your@email.com">
-      <button onclick="captureEmail()">Subscribe Free</button>
-    </div>
-    <div class="email-msg" id="emailMsg">You're in! Check your inbox Monday.</div>
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe src="https://subscribe-forms.beehiiv.com/6831d05b-f121-4e0d-951b-16f88ddd9ec3" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width:100%;max-width:400px;height:375px;margin:0 auto;border-radius:12px;background:transparent;box-shadow:none;display:block;"></iframe>
   </div>
 </div>
 
