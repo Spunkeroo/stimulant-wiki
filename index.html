@@ -18,6 +18,9 @@
   <meta name="twitter:description" content="100+ entries on stimulants, nootropics, and cognitive enhancers. Free forever.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
   <link rel="canonical" href="https://stimulant.wiki">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -1257,6 +1260,7 @@ function renderGrid() {
 }
 
 // OPEN ENTRY MODAL
+function esc(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
 function openEntry(idx) {
   const e = ENTRIES[idx];
   const catClass = 'wc-cat-' + e.cat;
