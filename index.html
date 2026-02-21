@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://subscribe-forms.beehiiv.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src https://subscribe-forms.beehiiv.com; navigate-to 'self' https://*.hop.clickbank.net https://www.amazon.com; object-src 'none'; base-uri 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://subscribe-forms.beehiiv.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://predict-network-ec767-default-rtdb.firebaseio.com; frame-src https://subscribe-forms.beehiiv.com; navigate-to 'self' https://*.hop.clickbank.net https://www.amazon.com; object-src 'none'; base-uri 'self'">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stimulant Wiki — Stimulants, Nootropics & Cognitive Enhancement</title>
   <meta name="description" content="The internet's most comprehensive wiki on stimulants, nootropics, and cognitive enhancers. 100+ entries covering mechanisms, dosing, stacking, safety, and science.">
@@ -1449,6 +1449,25 @@ document.querySelectorAll('.wiki-card,.stack-card,.guide-card').forEach(el => {
     var c=(d&&d.count)||0;
     fetch(FB+'/stimulant/wiki/visitors.json',{method:'PATCH',body:JSON.stringify({count:c+1,last:Date.now()})});
   }).catch(function(){});
+})();
+</script>
+<script>
+// Auto-refresh content every 10 seconds
+(function(){
+  var refreshInterval = 10000; // every 10 seconds
+  setInterval(function(){
+    try {
+      var FB = 'https://predict-network-ec767-default-rtdb.firebaseio.com';
+      fetch(FB + '/stimulant/wiki/visitors.json').then(function(r){ return r.json(); }).then(function(d){
+        var count = (d && d.count) || 0;
+        var counterEls = document.querySelectorAll('[data-visitor-count]');
+        counterEls.forEach(function(el){ el.textContent = count.toLocaleString(); });
+      }).catch(function(){});
+    } catch(e) {}
+    document.querySelectorAll('[data-live-time]').forEach(function(el){
+      el.textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+    });
+  }, refreshInterval);
 })();
 </script>
 </body>
