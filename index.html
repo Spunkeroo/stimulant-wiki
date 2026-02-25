@@ -1479,5 +1479,6 @@ document.querySelectorAll('.wiki-card,.stack-card,.guide-card').forEach(el => {
 if(!localStorage.getItem(k)){localStorage.setItem(k,'1');fetch(fb+'/count.json').then(function(r){return r.json()}).then(function(n){var c=(n||0)+1;fetch(fb+'/count.json',{method:'PUT',body:JSON.stringify(c)});document.getElementById('gvc-count').textContent=c.toLocaleString()}).catch(function(){document.getElementById('gvc-count').textContent='1'})}
 else{fetch(fb+'/count.json').then(function(r){return r.json()}).then(function(n){document.getElementById('gvc-count').textContent=(n||0).toLocaleString()}).catch(function(){})}})();
 </script>
+<script src="https://spunk.codes/heartbeat.js" defer></script>
 </body>
 </html>
